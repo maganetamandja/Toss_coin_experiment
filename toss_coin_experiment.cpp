@@ -1,11 +1,12 @@
 //include random
+#include <gmp.h>
 #include <iostream>
 #include <random>
 #include <vector>
 #include <math.h>
 #include "combination.h"
 
-int n = 2; //toss n times
+int n = 10; //toss n times
 //function to toss a coin
 
 int toss_coin(){
@@ -68,18 +69,31 @@ int main(){
     //populate proposed vector
     populate();
 
+    double sum_ver1 = 0.0;
+    double sum_ver2 = 0.0;
+
     for(int i = 0; i< distribution_vector.size(); i++){
         std::cout << (double)distribution_vector.at(i)/k << std::endl;
+
+        sum_ver1 = sum_ver1+((double)distribution_vector.at(i)/k);
+
+       // std::cout << "sum inter is : "<< sum_ver1 << std::endl;
+
+
+       
     }
+     std::cout << "sum is : "<< sum_ver1 << std::endl;
 
     std::cout<<"====================="<<std::endl;
 
      for(int i = 0; i< proposed_distribution_vector.size(); i++){
         std::cout << proposed_distribution_vector.at(i) << std::endl;
+        sum_ver2 = sum_ver2 + proposed_distribution_vector.at(i);
+      //  std::cout << "sum inter is : "<< sum_ver2 << std::endl;
        // std::cout << typeid(proposed_distribution_vector.at(i)).name() << std::endl;
        
     }
-
+    std::cout << "sum is : "<< sum_ver2 << std::endl;
 
     //std::cout << distribution_vector << std::endl;
     return 0;

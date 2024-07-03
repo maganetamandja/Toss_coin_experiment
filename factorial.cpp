@@ -1,6 +1,7 @@
 //include factorial
 #include "factorial.h"
 #include <iostream>
+#include <gmp.h>
 
 int factorial(int n){
 
